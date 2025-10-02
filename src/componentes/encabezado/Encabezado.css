@@ -1,0 +1,95 @@
+/* Paleta */
+:root {
+  --celestial-blue: #87CEEB; /* Azul cielo */
+  --soft-gold: #d8c690;      /* Dorado suave */
+  --pure-white: #ffffff;
+  --whatsapp: #25D366;
+  --text-dark: #2a2a2a;
+}
+
+.encabezado {
+  position: relative;
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  color: var(--text-dark);
+  /* Sin fondo propio para usar el fondo global */
+  background: transparent;
+  overflow: hidden;
+}
+
+.encabezado__overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.encabezado__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1.25rem;
+  max-width: 960px;
+}
+
+.encabezado__logo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(216, 198, 144, 0.7);
+  box-shadow: 0 8px 28px rgba(135, 206, 235, 0.35);
+  margin-bottom: 1rem;
+  background: var(--pure-white);
+}
+
+.encabezado__titulo {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  margin: 0.2rem 0 0.6rem;
+  color: #1f3850; /* azul profundo legible */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.encabezado__subtitulo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  line-height: 1.6;
+  color: #3b4e63;
+  margin: 0 0 1.25rem;
+}
+
+.encabezado__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(180deg, var(--whatsapp), #1ebe57);
+  color: var(--pure-white);
+  font-weight: 700;
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  text-decoration: none;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+  border: 1px solid rgba(255,255,255,0.6);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.encabezado__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(37, 211, 102, 0.42);
+  filter: brightness(1.03);
+}
+
+@media (min-width: 768px) {
+  .encabezado {
+    min-height: 80vh;
+  }
+  .encabezado__logo {
+    width: 128px;
+    height: 128px;
+  }
+}
