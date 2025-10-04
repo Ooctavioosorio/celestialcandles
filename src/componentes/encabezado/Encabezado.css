@@ -1,95 +1,172 @@
-/* Paleta */
-:root {
-  --celestial-blue: #87CEEB; /* Azul cielo */
-  --soft-gold: #d8c690;      /* Dorado suave */
-  --pure-white: #ffffff;
-  --whatsapp: #25D366;
-  --text-dark: #2a2a2a;
-}
+/* Encabezado - estilos neutrales sin pasteles */
 
-.encabezado {
+.enc {
   position: relative;
-  min-height: 70vh;
-  display: grid;
-  place-items: center;
-  color: var(--text-dark);
-  /* Sin fondo propio para usar el fondo global */
-  background: transparent;
-  overflow: hidden;
+  background: #f8f3f2;
 }
 
-.encabezado__overlay {
-  position: absolute;
-  inset: 0;
-  background: transparent;
-  pointer-events: none;
+/* Barra superior */
+.enc__nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(90deg, #b9c48d 0%, #b8b6dc 100%);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-.encabezado__content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 2rem 1.25rem;
-  max-width: 960px;
+.enc__bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
 }
 
-.encabezado__logo {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid rgba(216, 198, 144, 0.7);
-  box-shadow: 0 8px 28px rgba(135, 206, 235, 0.35);
-  margin-bottom: 1rem;
-  background: var(--pure-white);
-}
-
-.encabezado__titulo {
-  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  font-size: clamp(1.8rem, 4.5vw, 3rem);
-  margin: 0.2rem 0 0.6rem;
-  color: #1f3850; /* azul profundo legible */
-  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
-}
-
-.encabezado__subtitulo {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
-  line-height: 1.6;
-  color: #3b4e63;
-  margin: 0 0 1.25rem;
-}
-
-.encabezado__cta {
-  display: inline-flex;
+.enc__socialGroup {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(180deg, var(--whatsapp), #1ebe57);
-  color: var(--pure-white);
-  font-weight: 700;
-  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-  text-decoration: none;
-  padding: 0.85rem 1.25rem;
+}
+
+.enc__social {
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
-  box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
-  border: 1px solid rgba(255,255,255,0.6);
-  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.enc__social:hover { filter: brightness(0.96); }
+.enc__socialIcon { width: 22px; height: 22px; display: block; }
+
+.enc__spacer { width: 40px; height: 40px; }
+
+.enc__menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }
 
-.encabezado__cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 22px rgba(37, 211, 102, 0.42);
-  filter: brightness(1.03);
+.enc__link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+.enc__link:hover {
+  color: #111;
 }
 
-@media (min-width: 768px) {
-  .encabezado {
-    min-height: 80vh;
+/* Hero */
+.enc__hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+}
+
+.enc__media {
+  justify-self: center;
+  width: min(500px, 92vw);
+  border-radius: 80px;
+  overflow: hidden;
+  border: 4px solid #b9c48d; /* borde visible para el contenedor de imagen */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Carrusel: deslizamiento horizontal */
+.enc__slideViewport { width: 100%; height: 100%; overflow: hidden; }
+.enc__slideTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+}
+.enc__slideItem {
+  width: 100%;
+  height: auto;
+  flex: 0 0 100%;
+  object-fit: cover;
+}
+
+/* Pila para desvanecido suave */
+.enc__fadeStack { position: relative; width: 100%; height: 100%; }
+.enc__fadeImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.enc__fadeImg.is-active { opacity: 1; }
+
+.enc__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.enc__placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #ececec;
+}
+
+.enc__copy {
+  text-align: center;
+}
+
+.enc__title {
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+}
+
+.enc__subtitle {
+  margin: 0 0 1rem 0;
+  color: #444;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.enc__btn {
+  display: inline-block;
+  background: #e4c1c1;
+  color: #222;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid #b8b6dc; /* borde visible para el botón */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease, filter 0.2s ease, transform 0.15s ease;
+}
+.enc__btn:hover {
+  filter: brightness(0.98);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 900px) {
+  .enc__hero {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    padding: 3rem 2rem;
   }
-  .encabezado__logo {
-    width: 128px;
-    height: 128px;
+  .enc__copy {
+    text-align: left;
   }
 }
