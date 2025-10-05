@@ -29,7 +29,6 @@
 .con__title {
   text-align: center;
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
   font-weight: 600;
   color: #a6a0d8; /* lila suave */
   font-size: clamp(2rem, 7vw, 3.5rem);
