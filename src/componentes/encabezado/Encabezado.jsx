@@ -1,14 +1,24 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import './Encabezado.css'
 // Carga flexible de imagen sin depender de la extensión
 const allImages = import.meta.glob('/src/imagenes/**/*.{png,jpg,jpeg,webp,gif}', { eager: true, import: 'default' })
 
-const FOLDERS = ['amorypaz', 'armonia', 'felicidad', 'gratitud', 'prosperidad']
+// Lista explícita para el carrusel
+const HERO_LIST = [
+  { folder: 'amorypaz', name: 'amorypaz1' },
+  { folder: 'armonia', name: 'armonia2' },
+  { folder: 'felicidad', name: 'felicidad1' },
+  { folder: 'gratitud', name: 'gratitud2' },
+  { folder: 'prosperidad', name: 'prosperidad1' },
+  { folder: 'salmo91', name: 'salmo91_2' },
+  { folder: 'sangabriel', name: 'sangabriel1' },
+  { folder: 'sanmiguel', name: 'sanmiguel3' },
+]
 
 function getHeroImages() {
-  return FOLDERS.map((folder) => {
+  return HERO_LIST.map(({ folder, name }) => {
     const match = Object.entries(allImages).find(
-      ([path]) => path.includes(`/imagenes/${folder}/`) && path.toLowerCase().includes('principal')
+      ([path]) => path.includes(`/imagenes/${folder}/`) && path.toLowerCase().includes(name.toLowerCase())
     )
     return match ? match[1] : null
   }).filter(Boolean)
@@ -17,11 +27,18 @@ function getHeroImages() {
 function Encabezado() {
   const images = useMemo(() => getHeroImages(), [])
   const [idx, setIdx] = useState(0)
+  const [animate, setAnimate] = useState(true)
   const [activeId, setActiveId] = useState('')
+  const trackRef = useRef(null)
+  const resettingRef = useRef(false)
 
+  // avance automático
   useEffect(() => {
     if (images.length <= 1) return
-    const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 9000)
+    const id = setInterval(() => {
+      if (resettingRef.current) return
+      setIdx((i) => i + 1)
+    }, 7000)
     return () => clearInterval(id)
   }, [images.length])
 
@@ -80,10 +97,10 @@ function Encabezado() {
             </a>
           </div>
           <ul className="enc__menu">
-            <li><a className={`enc__link${activeId==='concepto' ? ' is-active' : ''}`} href="#concepto">Concepto</a></li>
+            <li><a className={`enc__link${activeId==='concepto' ? ' is-active' : ''}`} href="#concepto">Proposito</a></li>
+            <li><a className={`enc__link${activeId==='productos' ? ' is-active' : ''}`} href="#productos">Productos</a></li>
             <li><a className={`enc__link${activeId==='kit' ? ' is-active' : ''}`} href="#kit">Kit</a></li>
             <li><a className={`enc__link${activeId==='proceso' ? ' is-active' : ''}`} href="#proceso">Proceso</a></li>
-            <li><a className={`enc__link${activeId==='productos' ? ' is-active' : ''}`} href="#productos">Productos</a></li>
           </ul>
           <div className="enc__spacer" aria-hidden="true" />
         </div>
@@ -94,15 +111,33 @@ function Encabezado() {
           {images && images.length > 0 ? (
             <div className="enc__slideViewport">
               <div
-                className="enc__slideTrack"
+                className={`enc__slideTrack${!animate ? ' no-anim' : ''}`}
                 style={{ transform: `translateX(-${idx * 100}%)` }}
+                onTransitionEnd={() => {
+                  // si mostramos el clon (idx === images.length), saltar sin animación a 0
+                  if (images.length > 0 && idx === images.length) {
+                    resettingRef.current = true
+                    setAnimate(false)
+                    // forzar reflow para aplicar el cambio de transición antes del salto
+                    if (trackRef.current) void trackRef.current.offsetHeight
+                    setIdx(0)
+                    // doble rAF para asegurar repintado sin transición
+                    requestAnimationFrame(() => {
+                      requestAnimationFrame(() => {
+                        setAnimate(true)
+                        resettingRef.current = false
+                      })
+                    })
+                  }
+                }}
+                ref={trackRef}
               >
-                {images.map((src, i) => (
+                {[...images, images[0]].map((src, i) => (
                   <img
                     key={i}
                     className="enc__slideItem"
                     src={src}
-                    alt={`Vela Celestial Candles ${i + 1}`}
+                    alt={`Vela Celestial Candles ${((i % images.length) + 1)}`}
                   />
                 ))}
               </div>

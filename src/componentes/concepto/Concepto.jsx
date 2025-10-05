@@ -4,6 +4,7 @@ function Concepto() {
   return (
     <section id="concepto" className="con">
       <h2 className="con__title">Propósito</h2>
+      <p className="con__intro">Encender cada vela es abrir un espacio de calma, intención y conexión espiritual para transformar tu energía.</p>
 
       <div className="con__grid">
         <article className="con__card">
