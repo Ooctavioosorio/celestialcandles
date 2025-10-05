@@ -1,1 +1,166 @@
+.prod2 {
+  padding: 5rem 1rem 4rem;
+  background: #fbf5f3;
+}
+
+.prod2__title {
+  text-align: center;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #a6a0d8;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  margin: 0 0 0.5rem 0;
+}
+.prod2__subtitle {
+  text-align: center;
+  color: #222;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin: 0 0 2rem 0;
+}
+
+.prod2__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.prod2__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-shadow: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.prod2__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border-color: #dedede;
+}
+
+.prod2__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.prod2__img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transform: none;
+  transition: transform 180ms ease;
+}
+.prod2__card:hover .prod2__img { transform: scale(1.02); }
+
+.prod2__body { padding: 1rem 1rem 1.1rem; }
+.prod2__name {
+  margin: 0 0 0.25rem 0;
+  color: #1f1f1f;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.prod2__desc { margin: 0; color: #6b6b6b; font-size: 0.95rem; line-height: 1.55; }
+
+@media (min-width: 900px) {
+  .prod2 { padding: 6rem 1rem 5rem; }
+  /* En desktop: usar flex para centrar filas (3 + 2) de forma natural */
+  .prod2__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .prod2__card { width: 300px; }
+}
+.prod {
+  padding: 4rem 1rem 3rem;
+  background: #fbf5f3;
+}
+
+.prod__title {
+  text-align: center;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #a6a0d8;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  margin: 0 0 0.5rem 0;
+}
+.prod__subtitle {
+  text-align: center;
+  color: #222;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin: 0 0 2rem 0;
+}
+
+.prod__gallery {
+  max-width: 1100px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  justify-items: center;
+}
+.prod__thumb {
+  width: min(320px, 92vw);
+  aspect-ratio: 1 / 1;
+  border: 3px solid #b9c48d; /* mismo borde del header */
+  border-radius: 32% 32% 32% 32% / 28% 28% 28% 28%; /* óvalo redondeado estilo mock */
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.prod__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.prod__cards {
+  max-width: 1100px;
+  margin: 0 auto 1.8rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.prod__card {
+  background: #ebe7b9;
+  border-top: 2px solid #b9c48d;
+  border-bottom: 2px solid #b9c48d;
+  padding: 1rem 1rem 1.2rem;
+  text-align: center;
+}
+.prod__card + .prod__card { border-top: none; }
+.prod__cardTitle {
+  margin: 0.25rem 0 0.25rem 0;
+  color: #2a2a2a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+.prod__cardText { margin: 0; color: #444; }
+
+.prod__cta { display: flex; justify-content: center; }
+.prod__btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: #cfe0fb;
+  color: #222;
+  text-decoration: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid #b8b6dc;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease, filter 0.2s ease;
+}
+.prod__btn:hover { filter: brightness(0.98); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+
+@media (min-width: 900px) {
+  .prod { padding: 5rem 1rem 4rem; }
+  /* 3 columnas fijas y centradas. Segunda fila centrada usando columnas 1 y 3 */
+  .prod__gallery {
+    grid-template-columns: repeat(3, 320px);
+    justify-content: center;
+  }
+  .prod__gallery > .prod__item:nth-child(4) { grid-column: 1; }
+  .prod__gallery > .prod__item:nth-child(5) { grid-column: 3; }
+  .prod__cards { grid-template-columns: repeat(3, 1fr); }
+}
 /* estilos temporalmente desactivados para pruebas */

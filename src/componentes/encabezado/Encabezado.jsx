@@ -17,12 +17,36 @@ function getHeroImages() {
 function Encabezado() {
   const images = useMemo(() => getHeroImages(), [])
   const [idx, setIdx] = useState(0)
+  const [activeId, setActiveId] = useState('')
 
   useEffect(() => {
     if (images.length <= 1) return
     const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 9000)
     return () => clearInterval(id)
   }, [images.length])
+
+  // Observa secciones para resaltar el link activo en la barra
+  useEffect(() => {
+    const ids = ['concepto', 'kit', 'proceso', 'productos']
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean)
+
+    if (!sections.length) return
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible?.target?.id) setActiveId(visible.target.id)
+      },
+      { root: null, rootMargin: '0px 0px -40% 0px', threshold: [0.3, 0.5, 0.7] }
+    )
+
+    sections.forEach((el) => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
 
   const currentImg = images.length > 0 ? images[idx] : null
   const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
@@ -56,10 +80,10 @@ function Encabezado() {
             </a>
           </div>
           <ul className="enc__menu">
-            <li><a className="enc__link" href="#concepto">Concepto</a></li>
-            <li><a className="enc__link" href="#kit">Kit</a></li>
-            <li><a className="enc__link" href="#proceso">Proceso</a></li>
-            <li><a className="enc__link" href="#productos">Productos</a></li>
+            <li><a className={`enc__link${activeId==='concepto' ? ' is-active' : ''}`} href="#concepto">Concepto</a></li>
+            <li><a className={`enc__link${activeId==='kit' ? ' is-active' : ''}`} href="#kit">Kit</a></li>
+            <li><a className={`enc__link${activeId==='proceso' ? ' is-active' : ''}`} href="#proceso">Proceso</a></li>
+            <li><a className={`enc__link${activeId==='productos' ? ' is-active' : ''}`} href="#productos">Productos</a></li>
           </ul>
           <div className="enc__spacer" aria-hidden="true" />
         </div>
