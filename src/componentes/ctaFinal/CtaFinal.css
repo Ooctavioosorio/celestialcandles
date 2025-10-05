@@ -1,1 +1,80 @@
-/* estilos temporalmente desactivados para pruebas */
+/* CTA Final - WhatsApp */
+
+.cta {
+  position: relative;
+  padding: 4rem 1rem 4.5rem;
+  background: #fbf5f3;
+}
+
+/* halo sutil para dar foco */
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 0%, rgba(184,182,220,0.18), rgba(0,0,0,0) 60%);
+}
+
+.cta__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta__title {
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 700;
+  color: #a6a0d8;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+}
+.cta__title::after {
+  content: "";
+  display: block;
+  width: 160px;
+  height: 6px;
+  margin: 0.75rem auto 0;
+  background: linear-gradient(90deg, #b9c48d 0%, #b8b6dc 100%);
+  border-radius: 999px;
+  opacity: 0.6;
+}
+
+.cta__subtitle {
+  margin: 1rem 0 1.75rem;
+  color: #333;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: clamp(1rem, 2.6vw, 1.1rem);
+}
+
+.cta__actions { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+
+.cta__btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #25D366 0%, #1ebe58 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid #1fb454;
+  font-weight: 800;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  box-shadow: 0 10px 24px rgba(31,180,84,0.25);
+  transition: transform 140ms ease, box-shadow 160ms ease, filter 140ms ease;
+}
+.cta__btn:hover { filter: brightness(1.03); box-shadow: 0 12px 28px rgba(31,180,84,0.32); }
+.cta__btn:active { transform: translateY(1px); }
+.cta__btn:focus-visible { outline: 3px solid #b9c48d; outline-offset: 3px; }
+
+.cta__secure {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 900px) {
+  .cta { padding: 5rem 1rem 5.5rem; }
+  .cta__actions { flex-direction: row; justify-content: center; gap: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta__btn { transition: none !important; }
+}

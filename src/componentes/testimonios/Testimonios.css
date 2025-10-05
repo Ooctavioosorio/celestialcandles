@@ -1,1 +1,122 @@
-/* estilos temporalmente desactivados para pruebas */
+/* Testimonios - acorde a la paleta y tipografías del sitio */
+
+.testi {
+  position: relative;
+  padding: 5rem 1rem 4rem;
+  background: #fbf5f3; /* consistente con secciones claras */
+}
+
+/* halo sutil de fondo */
+.testi::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 0%, rgba(184,182,220,0.14), rgba(0,0,0,0) 60%);
+}
+
+.testi__head { max-width: 1100px; margin: 0 auto 1.25rem; text-align: center; }
+
+.testi__title {
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 600;
+  color: #a6a0d8; /* lila del sistema */
+  font-size: clamp(2rem, 7vw, 3.5rem);
+}
+.testi__title::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 6px;
+  margin: 0.75rem auto 0;
+  background: linear-gradient(90deg, #b9c48d 0%, #b8b6dc 100%);
+  border-radius: 999px;
+  opacity: 0.6;
+}
+
+.testi__subtitle {
+  margin: 1rem 0 2rem;
+  color: #333;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.testi__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.testi__card {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+  padding: 1rem 1rem 1.2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.testi__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  border-color: #dedede;
+}
+
+.testi__header {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.testi__avatar {
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid #b9c48d; /* oliva suave usado en el sitio */
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #6b6a5e; font-weight: 700;
+}
+
+.testi__meta { min-width: 0; }
+.testi__name {
+  color: #2a2a2a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+.testi__role { color: #666; font-size: 0.92rem; }
+
+.testi__stars {
+  color: #b9c48d; /* combina con los acentos del header */
+  font-size: 0.95rem;
+}
+
+.testi__text {
+  margin: 0.25rem 0 0;
+  color: #444;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.6;
+  position: relative;
+}
+
+.testi__quoteMark {
+  color: #a6a0d8; /* lila de títulos */
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.6rem;
+  line-height: 0;
+  vertical-align: baseline;
+  opacity: 0.9;
+}
+
+@media (min-width: 900px) {
+  .testi { padding: 6rem 1rem 5rem; }
+  .testi__card { padding: 1.2rem 1.2rem 1.4rem; }
+}
+
+/* Accesibilidad y motion */
+.testi__card:focus-within { outline: 3px solid #b9c48d; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .testi__card { transition: none !important; }
+}
