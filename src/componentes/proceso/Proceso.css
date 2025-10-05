@@ -1,1 +1,108 @@
+/* Proceso: estilos acordes al landing */
+.proceso { padding: 4rem 1rem 3rem; background: #f8f3f2; }
+
+/* CTA al final */
+.proceso__ctaWrap { text-align: center; margin-top: 1.5rem; }
+.proceso__cta {
+  display: inline-block;
+  background: #a6a0d8;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid #9a95cf;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease, filter 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+}
+.proceso__cta:hover { background-color: #9a95cf; box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+
+.proceso__title {
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  color: #a6a0d8;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 2.4rem);
+}
+.proceso__title::after {
+  content: "";
+  display: block;
+  width: 140px; height: 6px; margin: 0.75rem auto 0;
+  background: linear-gradient(90deg, #b9c48d 0%, #b8b6dc 100%);
+  border-radius: 999px; opacity: 0.6;
+}
+.proceso__subtitle { text-align: center; color: #333; margin: 1rem 0 2rem; }
+
+/* Grid de pasos */
+.proceso__grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.step__badge {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  background: #b9c48d; /* color único solicitado */
+  color: #fff;
+  display: grid; place-items: center;
+  font-weight: 700;
+  border: 2px solid #b9c48d;
+}
+.step__num { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+.step__title { margin: 0 0 0.25rem; font-family: Georgia, 'Times New Roman', serif; color: #1f1f1f; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; }
+.step__icon { font-size: 1.1rem; }
+.step__desc { margin: 0; color: #444; line-height: 1.6; }
+
+/* Conectores tipo timeline en desktop */
+@media (min-width: 900px) {
+  .proceso { padding: 5rem 1rem 4rem; }
+  .proceso__grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; position: relative; }
+  .step { padding: 1rem; }
+  /* línea central vertical */
+  .proceso__grid::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 2px; background: rgba(184,182,220,0.35);
+    transform: translateX(-50%);
+  }
+}
+
+/* Color único para todos los badges */
+
+/* Animación sutil al aparecer (respeta reduce-motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .step { opacity: 0; transform: translateY(8px); animation: step-in 500ms ease forwards; }
+  .proceso__grid > .step:nth-child(1) { animation-delay: 40ms; }
+  .proceso__grid > .step:nth-child(2) { animation-delay: 80ms; }
+  .proceso__grid > .step:nth-child(3) { animation-delay: 120ms; }
+  .proceso__grid > .step:nth-child(4) { animation-delay: 160ms; }
+  .proceso__grid > .step:nth-child(5) { animation-delay: 200ms; }
+  .proceso__grid > .step:nth-child(6) { animation-delay: 240ms; }
+  .proceso__grid > .step:nth-child(7) { animation-delay: 280ms; }
+}
+
+@keyframes step-in {
+  to { opacity: 1; transform: none; }
+}
 /* estilos temporalmente desactivados para pruebas */
