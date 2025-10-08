@@ -41,7 +41,7 @@ function Encabezado() {
     return () => obs.disconnect()
   }, [])
 
-  const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
+  const waHref = `https://wa.me/573008125143?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
   const handleNavClick = () => {
     // Al hacer click en un enlace del menú en móvil, cerrar el dropdown
     if (menuOpen) setMenuOpen(false)
@@ -109,7 +109,7 @@ function Encabezado() {
         <div className="enc__copy">
           <h1 className="enc__title">Ilumina tu espíritu con la esencia del cielo.</h1>
           <p className="enc__subtitle">Velas 100% ecológicas, naturales y con <strong>propósito</strong>.</p>
-          <a className="enc__btn" href={waHref} target="_blank" rel="noreferrer">WhatsApp</a>
+          <a className="enc__btn" href={waHref} target="_blank" rel="noreferrer">Escríbenos por WhatsApp</a>
         </div>
       </div>
     </header>

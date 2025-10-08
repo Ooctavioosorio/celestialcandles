@@ -1,7 +1,7 @@
 import './WhatsAppFlotante.css'
 
 function WhatsAppFlotante() {
-  const waNumber = '573005466325'
+  const waNumber = '573008125143'
   const waText = encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')
   const waLink = `https://wa.me/${waNumber}?text=${waText}`
 

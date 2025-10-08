@@ -1,7 +1,7 @@
 import './CtaFinal.css'
 
 function CtaFinal() {
-  const waNumber = '573005466325' // número unificado, sin +
+  const waNumber = '573008125143' // número unificado, sin +
   const waText = encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')
   const waLink = `https://wa.me/${waNumber}?text=${waText}`
 
@@ -15,7 +15,7 @@ function CtaFinal() {
 
         <div className="cta__actions">
           <a className="cta__btn" href={waLink} target="_blank" rel="noopener noreferrer">
-            Comprar por WhatsApp
+            Escríbenos por WhatsApp
           </a>
           <span className="cta__secure">Compra segura • Respuesta rápida</span>
         </div>

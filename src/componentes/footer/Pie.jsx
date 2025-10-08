@@ -3,7 +3,7 @@ import logo from '../../imagenes/logo_trtansparente.png'
 
 function Pie() {
   const year = new Date().getFullYear()
-  const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
+  const waHref = `https://wa.me/573008125143?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
 
   return (
     <footer className="pie" id="pie">
@@ -30,7 +30,7 @@ function Pie() {
           <h3 className="pie__heading">Contacto</h3>
           <ul className="pie__list">
             <li><a className="pie__link" href="mailto:contacto@celestialcandles.co">contacto@celestialcandles.co</a></li>
-            <li><a className="pie__link" href={waHref} target="_blank" rel="noreferrer">WhatsApp: +57 300 546 6325</a></li>
+            <li><a className="pie__link" href={waHref} target="_blank" rel="noreferrer">WhatsApp: +57 300 812 5143</a></li>
             <li><span className="pie__small">Horario: Lun - Sáb, 9:00 a 18:00</span></li>
           </ul>
           <div className="pie__social">
