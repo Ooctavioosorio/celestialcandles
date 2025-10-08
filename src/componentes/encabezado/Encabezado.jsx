@@ -16,6 +16,7 @@ function getFixedImage() {
 function Encabezado() {
   const hero = useMemo(() => getFixedImage(), [])
   const [activeId, setActiveId] = useState('')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   // Observa secciones para resaltar el link activo en la barra
   useEffect(() => {
@@ -41,11 +42,28 @@ function Encabezado() {
   }, [])
 
   const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
+  const handleNavClick = () => {
+    // Al hacer click en un enlace del menú en móvil, cerrar el dropdown
+    if (menuOpen) setMenuOpen(false)
+  }
 
   return (
     <header className="enc">
       <nav className="enc__nav" aria-label="Navegación principal">
         <div className="enc__bar">
+          {/* Botón hamburguesa solo visible en móvil */}
+          <button
+            className="enc__burger"
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuOpen}
+            aria-controls="enc-menu"
+            onClick={() => setMenuOpen((v) => !v)}
+            type="button"
+          >
+            <span className="enc__burgerLine" aria-hidden="true" />
+            <span className="enc__burgerLine" aria-hidden="true" />
+            <span className="enc__burgerLine" aria-hidden="true" />
+          </button>
           <div className="enc__socialGroup">
             <a
               className="enc__social enc__social--ig"
@@ -70,11 +88,11 @@ function Encabezado() {
               </svg>
             </a>
           </div>
-          <ul className="enc__menu">
-            <li><a className={`enc__link${activeId==='concepto' ? ' is-active' : ''}`} href="#concepto">Proposito</a></li>
-            <li><a className={`enc__link${activeId==='productos' ? ' is-active' : ''}`} href="#productos">Productos</a></li>
-            <li><a className={`enc__link${activeId==='kit' ? ' is-active' : ''}`} href="#kit">Kit</a></li>
-            <li><a className={`enc__link${activeId==='proceso' ? ' is-active' : ''}`} href="#proceso">Proceso</a></li>
+          <ul id="enc-menu" className={`enc__menu${menuOpen ? ' is-open' : ''}`}>
+            <li><a onClick={handleNavClick} className={`enc__link${activeId==='concepto' ? ' is-active' : ''}`} href="#concepto">Proposito</a></li>
+            <li><a onClick={handleNavClick} className={`enc__link${activeId==='productos' ? ' is-active' : ''}`} href="#productos">Productos</a></li>
+            <li><a onClick={handleNavClick} className={`enc__link${activeId==='kit' ? ' is-active' : ''}`} href="#kit">Kit</a></li>
+            <li><a onClick={handleNavClick} className={`enc__link${activeId==='proceso' ? ' is-active' : ''}`} href="#proceso">Proceso</a></li>
           </ul>
           <div className="enc__spacer" aria-hidden="true" />
         </div>
