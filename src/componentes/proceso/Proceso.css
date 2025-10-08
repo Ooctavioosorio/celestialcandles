@@ -92,14 +92,7 @@
   .proceso { padding: 5rem 1rem 4rem; }
   .proceso__grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; position: relative; }
   .step { padding: 1rem; }
-  /* línea central vertical */
-  .proceso__grid::before {
-    content: "";
-    position: absolute;
-    left: 50%; top: 0; bottom: 0;
-    width: 2px; background: rgba(184,182,220,0.35);
-    transform: translateX(-50%);
-  }
+  
 }
 
 /* Color único para todos los badges */
