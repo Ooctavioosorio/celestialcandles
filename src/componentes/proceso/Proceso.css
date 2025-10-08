@@ -56,10 +56,18 @@
 @media (max-width: 600px) {
   /* Padding lateral más compacto para móvil */
   .proceso { padding: 4rem 0.75rem 3rem; }
-  /* Más aire entre tarjetas en móvil */
-  .proceso__grid { gap: 1.25rem; }
-  /* Mantener tarjetas cómodas sin agrandar fuentes */
-  .step { padding: 0.75rem; }
+  /* Más compacto entre tarjetas */
+  .proceso__grid { gap: 0.9rem; }
+  /* Tarjeta más pequeña */
+  .step { padding: 0.65rem; grid-template-columns: auto 1fr; gap: 0.6rem; }
+  /* Badge reducido */
+  .step__badge { width: 34px; height: 34px; border-width: 2px; font-size: 0.95rem; }
+  /* Título y texto más compactos */
+  .step__title { gap: 0.35rem; font-size: 1rem; }
+  .step__icon { font-size: 1rem; }
+  .step__desc { font-size: 0.95rem; line-height: 1.5; }
+  /* CTA más compacta en móvil */
+  .proceso__cta { padding: 0.7rem 1rem; font-size: 0.95rem; }
 }
 
 .step {

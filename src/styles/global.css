@@ -12,3 +12,23 @@ html, body {
 /* Medios fluidos por defecto */
 img, video { max-width: 100%; height: auto; display: block; }
 
+/* Escala tipográfica suave solo en móviles */
+@media (max-width: 600px) {
+  /* Reducir base de 16px -> ~15px para acortar todo ligeramente */
+  html { font-size: 15px; }
+  /* Afinar lectura general sin tocar desktop */
+  body, p, li { font-size: 0.95rem; }
+
+  /* Compactar UI de forma suave y consistente */
+  /* Tarjetas: menos padding */
+  [class*="__card"] { padding: 0.9rem !important; }
+  /* Grillas: menor separación */
+  [class*="__grid"] { gap: 0.9rem !important; }
+  /* Botones: más compactos */
+  a[class*="__btn"], button { padding: 0.75rem 1rem !important; font-size: 0.95rem; }
+  /* Elementos internos comunes: reducir padding lateral si existe */
+  [class*="__inner"] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+  /* Imágenes dentro de bloques: evitar ocupar todo el ancho para dar más aire */
+  [class*="__card"] img, [class*="__media"] img { max-width: 96%; margin-left: auto; margin-right: auto; }
+}
+

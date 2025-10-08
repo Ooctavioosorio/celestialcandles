@@ -71,6 +71,8 @@
 @media (max-width: 600px) {
   /* Imagen más compacta y centrada en móvil */
   .kitRow__media { width: min(100%, 300px); }
+  /* Sin aire interno en la imagen (anula ajuste global de 96%) */
+  .kitRow__media .kitRow__img { max-width: 100%; margin: 0; }
   /* Texto con padding lateral mínimo y centrado en móvil */
   .kitRow__text { padding: 0.5rem 0.25rem; text-align: center; }
 }

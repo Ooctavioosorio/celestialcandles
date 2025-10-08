@@ -52,9 +52,13 @@
   /* Padding general un poco más compacto */
   .prod2 { padding: 4.5rem 0.75rem 3.5rem; }
   /* Menor separación entre tarjetas */
-  .prod2__grid { gap: 1rem; }
+  .prod2__grid { gap: 0.9rem; }
   /* Limitar ancho de tarjeta y centrar en móvil */
   .prod2__card { max-width: 320px; margin: 0 auto; }
+  /* Cuerpo de la tarjeta más compacto y legible */
+  .prod2__body { padding: 0.85rem 0.85rem 1rem; }
+  .prod2__name { font-size: 1.05rem; margin-bottom: 0.2rem; }
+  .prod2__desc { font-size: 0.95rem; line-height: 1.5; }
 }
 
 .prod2__card {

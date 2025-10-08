@@ -181,6 +181,8 @@
   .enc__title { font-size: clamp(2rem, 7vw, 2.3rem); }
   /* Imagen del hero más compacta para móviles */
   .enc__media { width: min(360px, 92vw); }
+  /* Sin aire interno en la imagen del hero (anula global) */
+  .enc__media .enc__img { max-width: 100%; margin: 0; }
 
   /* Botón hamburguesa (solo móvil) */
   .enc__burger {

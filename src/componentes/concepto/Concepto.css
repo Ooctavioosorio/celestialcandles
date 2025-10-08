@@ -72,8 +72,11 @@
 @media (max-width: 600px) {
   .con { padding: 3.5rem 0.75rem 3rem; }
   .con__grid { gap: 1rem; }
-  .con__card { padding: 1rem 1rem 1.1rem; border-radius: 24px; }
-  .con__icon { width: 52px; height: 52px; }
+  .con__card { padding: 0.85rem 0.9rem 1rem; border-radius: 22px; max-width: 320px; margin: 0 auto; }
+  .con__icon { width: 46px; height: 46px; }
+  .con__iconSvg { width: 22px; height: 22px; }
+  .con__cardTitle { font-size: 1.1rem; }
+  .con__cardText { font-size: 0.94rem; }
   .con__bullets { gap: 0.4rem; }
   .con__bullets li { font-size: 0.95rem; }
 }
