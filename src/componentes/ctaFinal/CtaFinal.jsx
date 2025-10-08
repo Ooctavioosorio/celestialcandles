@@ -1,8 +1,8 @@
 import './CtaFinal.css'
 
 function CtaFinal() {
-  const waNumber = '573001234567' // Reemplaza por tu número con indicativo, sin +
-  const waText = encodeURIComponent('Hola, me gustaría comprar mis velas Celestial ✨🕯️')
+  const waNumber = '573005466325' // número unificado, sin +
+  const waText = encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')
   const waLink = `https://wa.me/${waNumber}?text=${waText}`
 
   return (

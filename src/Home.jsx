@@ -6,6 +6,7 @@ import Proceso from "./componentes/proceso/Proceso";
 import CtaFinal from "./componentes/ctaFinal/CtaFinal";
 import Testimonios from "./componentes/testimonios/Testimonios";
 import Pie from "./componentes/footer/Pie";
+import WhatsAppFlotante from "./componentes/flotante/WhatsAppFlotante";
 function Home() {
 
   return (
@@ -18,6 +19,7 @@ function Home() {
       <Testimonios/>
       <CtaFinal/>
       <Pie/>
+      <WhatsAppFlotante/>
     </>
   )
 } 

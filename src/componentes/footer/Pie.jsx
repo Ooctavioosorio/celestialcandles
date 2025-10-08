@@ -3,7 +3,7 @@ import logo from '../../imagenes/logo_trtansparente.png'
 
 function Pie() {
   const year = new Date().getFullYear()
-  const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me gustaría más información')}`
+  const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
 
   return (
     <footer className="pie" id="pie">

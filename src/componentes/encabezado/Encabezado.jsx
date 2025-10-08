@@ -1,46 +1,21 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './Encabezado.css'
 // Carga flexible de imagen sin depender de la extensión
 const allImages = import.meta.glob('/src/imagenes/**/*.{png,jpg,jpeg,webp,gif}', { eager: true, import: 'default' })
 
-// Lista explícita para el carrusel
-const HERO_LIST = [
-  { folder: 'amorypaz', name: 'amorypaz1' },
-  { folder: 'armonia', name: 'armonia2' },
-  { folder: 'felicidad', name: 'felicidad1' },
-  { folder: 'gratitud', name: 'gratitud2' },
-  { folder: 'prosperidad', name: 'prosperidad1' },
-  { folder: 'salmo91', name: 'salmo91_2' },
-  { folder: 'sangabriel', name: 'sangabriel1' },
-  { folder: 'sanmiguel', name: 'sanmiguel3' },
-]
-
-function getHeroImages() {
-  return HERO_LIST.map(({ folder, name }) => {
-    const match = Object.entries(allImages).find(
-      ([path]) => path.includes(`/imagenes/${folder}/`) && path.toLowerCase().includes(name.toLowerCase())
-    )
-    return match ? match[1] : null
-  }).filter(Boolean)
+// Imagen fija del hero (sin carrusel)
+function getFixedImage() {
+  const folder = 'armonia'
+  const name = 'armonia2'
+  const match = Object.entries(allImages).find(
+    ([path]) => path.includes(`/imagenes/${folder}/`) && path.toLowerCase().includes(name.toLowerCase())
+  )
+  return match ? match[1] : null
 }
 
 function Encabezado() {
-  const images = useMemo(() => getHeroImages(), [])
-  const [idx, setIdx] = useState(0)
-  const [animate, setAnimate] = useState(true)
+  const hero = useMemo(() => getFixedImage(), [])
   const [activeId, setActiveId] = useState('')
-  const trackRef = useRef(null)
-  const resettingRef = useRef(false)
-
-  // avance automático
-  useEffect(() => {
-    if (images.length <= 1) return
-    const id = setInterval(() => {
-      if (resettingRef.current) return
-      setIdx((i) => i + 1)
-    }, 7000)
-    return () => clearInterval(id)
-  }, [images.length])
 
   // Observa secciones para resaltar el link activo en la barra
   useEffect(() => {
@@ -65,7 +40,6 @@ function Encabezado() {
     return () => obs.disconnect()
   }, [])
 
-  const currentImg = images.length > 0 ? images[idx] : null
   const waHref = `https://wa.me/573005466325?text=${encodeURIComponent('Hola Celestial Candles, me interesa conocer sus productos')}`
 
   return (
@@ -86,7 +60,7 @@ function Encabezado() {
             </a>
             <a
               className="enc__social enc__social--wa"
-              href="https://wa.me/573005466325"
+              href={waHref}
               target="_blank"
               rel="noreferrer"
               aria-label="WhatsApp"
@@ -108,40 +82,8 @@ function Encabezado() {
 
       <div className="enc__hero">
         <div className="enc__media">
-          {images && images.length > 0 ? (
-            <div className="enc__slideViewport">
-              <div
-                className={`enc__slideTrack${!animate ? ' no-anim' : ''}`}
-                style={{ transform: `translateX(-${idx * 100}%)` }}
-                onTransitionEnd={() => {
-                  // si mostramos el clon (idx === images.length), saltar sin animación a 0
-                  if (images.length > 0 && idx === images.length) {
-                    resettingRef.current = true
-                    setAnimate(false)
-                    // forzar reflow para aplicar el cambio de transición antes del salto
-                    if (trackRef.current) void trackRef.current.offsetHeight
-                    setIdx(0)
-                    // doble rAF para asegurar repintado sin transición
-                    requestAnimationFrame(() => {
-                      requestAnimationFrame(() => {
-                        setAnimate(true)
-                        resettingRef.current = false
-                      })
-                    })
-                  }
-                }}
-                ref={trackRef}
-              >
-                {[...images, images[0]].map((src, i) => (
-                  <img
-                    key={i}
-                    className="enc__slideItem"
-                    src={src}
-                    alt={`Vela Celestial Candles ${((i % images.length) + 1)}`}
-                  />
-                ))}
-              </div>
-            </div>
+          {hero ? (
+            <img className="enc__img" src={hero} alt="Vela Celestial Candles - Armonía" />
           ) : (
             <div className="enc__placeholder" aria-label="Imagen de producto" />
           )}

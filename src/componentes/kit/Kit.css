@@ -16,7 +16,14 @@
   background: linear-gradient(90deg, #b9c48d 0%, #b8b6dc 100%);
   border-radius: 999px; opacity: 0.6;
 }
-.kit__subtitle { text-align: center; color: #333; margin: 1rem 0 2rem; }
+.kit__subtitle {
+  text-align: center;
+  color: #333;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.6vw, 1.1rem);
+  margin: 1rem 0 2rem;
+}
 
 /* Stack de filas */
 /* Fila base */
@@ -33,7 +40,15 @@
   width: min(100%, 340px); /* reduce tamaño de la tarjeta */
   margin: 0 auto; /* centra en mobile */
 }
-.kitRow__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.kitRow__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: none;
+  transition: transform 180ms ease;
+}
+.kitRow__media:hover .kitRow__img { transform: scale(1.02); }
 .kitRow__ph { width: 100%; height: 100%; background: #ececec; border-radius: 24px; }
 .kitRow__text { padding: 0.5rem; }
 .kitRow__title { margin: 0 0 0.35rem; font-family: Georgia, 'Times New Roman', serif; font-weight: 700; color: #1f1f1f; }

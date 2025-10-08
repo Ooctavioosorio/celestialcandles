@@ -35,10 +35,7 @@ function Concepto() {
           <p className="con__cardText">Más que luz: una herramienta para meditar y orar.</p>
         </article>
       </div>
-
-      <div className="con__cta">
-        <a className="con__btn" href="#productos">Nuestra Tienda</a>
-      </div>
+      
     </section>
   )
 }

@@ -12,7 +12,7 @@ const KITS = [
     descShort: 'Un ritual completo para conectar con tu energía interior.',
     descLong:
       'Incluye una vela natural de 450 gramos, una vela decorativa de obsequio, una tarjeta con oración personalizada y un palo santo para acompañar tu momento espiritual.',
-    precio: '$95.000 COP',
+    precio: '$95.000 COP mas envio ',
     entrega: '7 días (maduración de esencias).'
   },
   {
@@ -23,7 +23,7 @@ const KITS = [
     descShort: 'Equilibrio y armonía en pareja o para dos espacios.',
     descLong:
       'Incluye dos velas naturales de 250 gramos cada una, hechas con cera de soja, extractos naturales y fragancias puras.',
-    precio: '$95.000 COP',
+    precio: '$95.000 COP mas envio ',
     entrega: '7 días (maduración de esencias).'
   }
 ]
