@@ -48,7 +48,7 @@ function Kit() {
         {items.map((it, idx) => (
           <article
             key={it.key}
-            className={`kitRow ${idx === 0 ? 'kitRow--imgRight' : 'kitRow--imgLeft'}`}
+            className={`kitRow kitRow--imgLeft`}
           >
             <div className="kitRow__media">
               {it.src ? (
