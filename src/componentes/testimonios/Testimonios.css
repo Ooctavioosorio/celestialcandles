@@ -51,6 +51,16 @@
   gap: 1.25rem;
 }
 
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  /* Padding general más compacto en móvil */
+  .testi { padding: 4.25rem 0.75rem 3.75rem; }
+  /* Menor espacio entre tarjetas en móvil */
+  .testi__grid { gap: 1rem; }
+  /* Tarjeta con padding un poco menor para caber mejor */
+  .testi__card { padding: 0.9rem 0.9rem 1.1rem; }
+}
+
 .testi__card {
   background: #ffffff;
   border: 1px solid #eaeaea;

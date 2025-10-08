@@ -52,6 +52,16 @@
   gap: 1rem;
 }
 
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  /* Padding lateral más compacto para móvil */
+  .proceso { padding: 4rem 0.75rem 3rem; }
+  /* Más aire entre tarjetas en móvil */
+  .proceso__grid { gap: 1.25rem; }
+  /* Mantener tarjetas cómodas sin agrandar fuentes */
+  .step { padding: 0.75rem; }
+}
+
 .step {
   position: relative;
   display: grid;

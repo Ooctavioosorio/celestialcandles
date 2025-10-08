@@ -169,6 +169,17 @@
   .enc__btn { transition: none; }
 }
 
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  /* Reducir padding y espacios de la barra superior */
+  .enc__bar { padding: 0.5rem 0.75rem; }
+  .enc__menu { gap: 0.5rem; }
+  /* Título un poco más pequeño para evitar saltos de línea bruscos */
+  .enc__title { font-size: clamp(2rem, 7vw, 2.3rem); }
+  /* Imagen del hero más compacta para móviles */
+  .enc__media { width: min(360px, 92vw); }
+}
+
 @media (min-width: 900px) {
   .enc__hero {
     grid-template-columns: 1fr 1.2fr;

@@ -53,3 +53,15 @@
   .pie__nav, .pie__contacto { text-align: left; }
   .pie__logo { width: 200px; }
 }
+
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  /* Padding más compacto en móvil */
+  .pie { padding: 1.75rem 0.75rem 1rem; }
+  /* Menor separación entre bloques del footer */
+  .pie__inner { gap: 1rem; }
+  /* Logo un poco más pequeño para evitar saltos */
+  .pie__logo { width: 140px; }
+  /* Red social: separación más compacta */
+  .pie__social { gap: 0.5rem; }
+}

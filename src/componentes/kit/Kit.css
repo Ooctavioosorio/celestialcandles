@@ -67,4 +67,11 @@
   .kitRow--imgLeft .kitRow__media { order: 1; }
   .kitRow--imgLeft .kitRow__text { order: 2; text-align: right; }
 }
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  /* Imagen más compacta y centrada en móvil */
+  .kitRow__media { width: min(100%, 300px); }
+  /* Texto con padding lateral mínimo y centrado en móvil */
+  .kitRow__text { padding: 0.5rem 0.25rem; text-align: center; }
+}
 /* estilos temporalmente desactivados para pruebas */

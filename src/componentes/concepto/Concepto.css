@@ -68,6 +68,16 @@
   gap: 1.25rem;
 }
 
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  .con { padding: 3.5rem 0.75rem 3rem; }
+  .con__grid { gap: 1rem; }
+  .con__card { padding: 1rem 1rem 1.1rem; border-radius: 24px; }
+  .con__icon { width: 52px; height: 52px; }
+  .con__bullets { gap: 0.4rem; }
+  .con__bullets li { font-size: 0.95rem; }
+}
+
 .con__card {
   background: #f0eccc; /* base */
   border: 2px solid #b9c48d; /* mismo color del borde del encabezado */

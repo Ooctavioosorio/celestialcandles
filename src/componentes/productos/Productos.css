@@ -47,6 +47,16 @@
   gap: 1.5rem;
 }
 
+/* Ajustes responsivos: compactar en pantallas pequeñas (sin afectar desktop) */
+@media (max-width: 600px) {
+  /* Padding general un poco más compacto */
+  .prod2 { padding: 4.5rem 0.75rem 3.5rem; }
+  /* Menor separación entre tarjetas */
+  .prod2__grid { gap: 1rem; }
+  /* Limitar ancho de tarjeta y centrar en móvil */
+  .prod2__card { max-width: 320px; margin: 0 auto; }
+}
+
 .prod2__card {
   position: relative;
   overflow: hidden;
